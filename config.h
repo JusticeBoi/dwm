@@ -38,6 +38,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
 	{ "Gimp",     NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
 	{ "St",       NULL,       NULL,       0,            0,           1,         0,        -1 },
+	{ "ParaView",       NULL,       NULL,       1<<3,            0,           0,         0,        -1 },
+	{ "vlc",       NULL,       NULL,       1<<4,            0,           0,         0,        -1 },
 };
 
 /* layout(s) */
@@ -115,6 +117,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_Tab,		view,		{0} },
 	{ MODKEY,			XK_q,		killclient,	{0} },
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
+	{ MODKEY,			XK_p,		spawn,		SHCMD("paraview") },
 	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} },
 	{ MODKEY,			XK_y,		setlayout,	{.v = &layouts[2]} },
