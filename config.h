@@ -37,7 +37,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
 	{ "Gimp",     NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
-	{ "St",       NULL,       NULL,       0,            0,           0,         0,        -1 },
+	{ "St",       NULL,       NULL,       0,            0,           1,         0,        -1 },
 	{ "ParaView",       NULL,       NULL,       1<<3,            0,           0,         0,        -1 },
 	{ "vlc",       NULL,       NULL,       1<<4,            0,           0,         0,        -1 },
 	/* { "Tetris",       NULL,       NULL,       0,            1,           0,         0,        -1 }, */
@@ -131,7 +131,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_o,		incnmaster,     {.i = -1 } },
 	{ MODKEY,			XK_backslash,		view,		{0} },
 	{ MODKEY|ShiftMask,			XK_s,		togglesticky,	{0} },
-	{ MODKEY,			XK_s,		spawn, SHCMD("maim -s ~/Pictures/$(date +%d%m%y%H%M%S).png")	},
+	{ MODKEY,			XK_s,		spawn, SHCMD("maim -s ~/Pictures/$(date +%d_%m_%y_%H_%M_%S).png")	},
 	{ MODKEY,			XK_d,		spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,		XK_d,		togglegaps,	{0} },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
@@ -153,6 +153,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_Page_Down,	shiftview,	{ .i = 1 } },
 	{ MODKEY,			XK_Insert,	spawn,		SHCMD("notify-send \"📋 Clipboard contents:\" \"$(xclip -o -selection clipboard)\"") },
 	{ MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
+	{ MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Sleep Computer?\")\" = Yes ] && slock -m \"$(cowsay \"$(fortune)\")\"") },
 	{ MODKEY,			XK_F2,		quit,		{1} },
 	{ MODKEY,			XK_space,	zoom,		{0} },
 	{ MODKEY|ShiftMask,		XK_space,	togglefloating,	{0} },
