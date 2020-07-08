@@ -153,20 +153,16 @@ static Key keys[] = {
 	{ MODKEY,			XK_Page_Down,	shiftview,	{ .i = 1 } },
 	{ MODKEY,			XK_Insert,	spawn,		SHCMD("notify-send \"📋 Clipboard contents:\" \"$(xclip -o -selection clipboard)\"") },
 	{ MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
+	{ MODKEY|ShiftMask,		XK_v,		spawn,		SHCMD("a=$(dpass) && echo $a | sudo -A openconnect --authgroup=AnyConnect -b -u ga53zeg  asa-cluster.lrz.de && echo \"SUCCESS\" | dmenu -i -nb darkred -sb red -sf white -nf gray || echo \"FAIL\" | dmenu -i -nb darkred -sb red -sf white -nf gray") },
 	{ MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Sleep Computer?\")\" = Yes ] && slock -m \"$(cowsay \"$(fortune)\")\"") },
 	{ MODKEY,			XK_F2,		quit,		{1} },
 	{ MODKEY,			XK_space,	zoom,		{0} },
 	{ MODKEY|ShiftMask,		XK_space,	togglefloating,	{0} },
 	{ 0, XF86XK_PowerOff,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
-	/* { 0, XF86XK_Calculator,		spawn,		SHCMD("st -e bc -l") }, */
-	/* { 0, XF86XK_Sleep,		spawn,		SHCMD("sudo -A zzz") }, */
 	{ 0, XF86XK_WWW,		spawn,		SHCMD("$BROWSER") },
 	{ 0, XF86XK_DOS,		spawn,		SHCMD("st") },
-	/* { 0, XF86XK_ScreenSaver,	spawn,		SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") }, */
-	/* { 0, XF86XK_TaskPane,		spawn,		SHCMD("st -e htop") }, */
 	{ 0, XF86XK_Mail,		spawn,		SHCMD("st -e neomutt ; pkill -RTMIN+12 dwmblocks") },
 	{ 0, XF86XK_MyComputer,		spawn,		SHCMD("st -e lf /") },
-	/* { 0, XF86XK_Battery,		spawn,		SHCMD("") }, */
 	{ 0, XF86XK_Launch1,		spawn,		SHCMD("xset dpms force off") },
 	{ 0, XF86XK_TouchpadToggle,	spawn,		SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
 	{ 0, XF86XK_TouchpadOff,	spawn,		SHCMD("synclient TouchpadOff=1") },
